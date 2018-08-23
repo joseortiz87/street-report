@@ -1,16 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, ApplicationRef,NO_ERRORS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule,NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md';
+
+import { AgmCoreModule } from '@agm/core';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAFRscvaKopKuEUhbkNgh3uVLmJN_J7wkk'
+    }),
+    NgbModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
+    NavbarModule,
+    WavesModule,
+    ButtonsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  declarations: [ AppComponent, HeaderComponent ],
+  bootstrap: [ AppComponent ],
+  schemas: [ NO_ERRORS_SCHEMA ]
 })
-export class AppModule { }
+export class AppModule {}
